@@ -1,0 +1,2 @@
+# bugbot
+simple robot :)
