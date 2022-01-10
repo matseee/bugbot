@@ -26,14 +26,24 @@ void loop() {
   for(Pos = 10; Pos < 450; Pos++) {
     // This function sets the servos position. It takes two parameters, 
     // the first is the servo to control, and the second is the servo position. 
-    HCPCA9685.Servo(3, Pos);
-    HCPCA9685.Servo(8, Pos);
+    HCPCA9685.Servo(0, Pos);
+    HCPCA9685.Servo(1, Pos);
+    HCPCA9685.Servo(2, Pos);
+
+    HCPCA9685.Servo(4, Pos);
+    HCPCA9685.Servo(5, Pos);
+    HCPCA9685.Servo(6, Pos);
     delay(10);
   }
 
   for(Pos = 450; Pos >= 10; Pos--) {
-    HCPCA9685.Servo(3, Pos);
-    HCPCA9685.Servo(8, Pos);
+    HCPCA9685.Servo(0, Pos);
+    HCPCA9685.Servo(1, Pos);
+    HCPCA9685.Servo(2, Pos);
+
+    HCPCA9685.Servo(4, Pos);
+    HCPCA9685.Servo(5, Pos);
+    HCPCA9685.Servo(6, Pos);
     delay(10);
   }
 }
