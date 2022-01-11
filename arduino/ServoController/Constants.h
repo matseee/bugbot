@@ -5,21 +5,23 @@
 
 namespace constants
 {
-extern const PCA9685::DeviceAddress device_address;
-extern const PCA9685::Pin output_enable_pin;
+  extern const PCA9685::DeviceAddress device_address;
+  extern const PCA9685::Pin output_enable_pin;
+  
+  extern const PCA9685::Channel channelUpperLeft1;
+  extern const PCA9685::Channel channelUpperLeft2;
+  extern const PCA9685::Channel channelUpperLeft3;
+  
+  extern const PCA9685::Channel channelUpperRight1;
+  extern const PCA9685::Channel channelUpperRight2;
+  extern const PCA9685::Channel channelUpperRight3;
 
-extern const size_t loop_delay;
+  extern const PCA9685::Channel channelLowerLeft1;
+  extern const PCA9685::Channel channelLowerLeft2;
+  extern const PCA9685::Channel channelLowerLeft3;
 
-extern const PCA9685::Channel chLeft1;
-extern const PCA9685::Channel chLeft2;
-extern const PCA9685::Channel chLeft3;
-
-extern const PCA9685::Channel chRight1;
-extern const PCA9685::Channel chRight2;
-extern const PCA9685::Channel chRight3;
-
-extern const PCA9685::DurationMicroseconds servo_pulse_duration_min;
-extern const PCA9685::DurationMicroseconds servo_pulse_duration_max;
-extern const PCA9685::DurationMicroseconds servo_pulse_duration_increment;
+  extern const PCA9685::Channel channelLowerRight1;
+  extern const PCA9685::Channel channelLowerRight2;
+  extern const PCA9685::Channel channelLowerRight3;
 }
 #endif

@@ -1,13 +1,33 @@
+/**
+  Uses the library PCA9685 (https://github.com/janelia-arduino/PCA9685)
+*/
+
 #include <Arduino.h>
 #include <PCA9685.h>
 
 #include "Constants.h"
-
+#include "Servo.h"
 
 PCA9685 pca9685;
 
-PCA9685::DurationMicroseconds servo_pulse_durationLeft;
-PCA9685::DurationMicroseconds servo_pulse_durationRight;
+Servo* servoUpperLeft1;
+Servo* servoUpperLeft2;
+Servo* servoUpperLeft3;
+
+Servo* servoUpperRight1;
+Servo* servoUpperRight2;
+Servo* servoUpperRight3;
+
+Servo* servoLowerLeft1;
+Servo* servoLowerLeft2;
+Servo* servoLowerLeft3;
+
+Servo* servoLowerRight1;
+Servo* servoLowerRight2;
+Servo* servoLowerRight3;
+
+int pulseWidth = 1500;
+int changeValue = 1;
 
 void setup() {
   pca9685.setupSingleDevice(Wire,constants::device_address);
@@ -17,48 +37,63 @@ void setup() {
 
   pca9685.setToServoFrequency();
 
-  servo_pulse_durationLeft = constants::servo_pulse_duration_min;
-  servo_pulse_durationRight = constants::servo_pulse_duration_min;
+  servoUpperLeft1 = new Servo(pca9685, constants::channelUpperLeft1);
+  servoUpperLeft2 = new Servo(pca9685, constants::channelUpperLeft2, 40);
+  servoUpperLeft3 = new Servo(pca9685, constants::channelUpperLeft3);
+
+  servoUpperRight1 = new Servo(pca9685, constants::channelUpperRight1, -70);
+  servoUpperRight2 = new Servo(pca9685, constants::channelUpperRight2);
+  servoUpperRight3 = new Servo(pca9685, constants::channelUpperRight3);
+
+  servoLowerLeft1 = new Servo(pca9685, constants::channelLowerLeft1);
+  servoLowerLeft2 = new Servo(pca9685, constants::channelLowerLeft2);
+  servoLowerLeft3 = new Servo(pca9685, constants::channelLowerLeft3);
+
+  servoLowerRight1 = new Servo(pca9685, constants::channelLowerRight1);
+  servoLowerRight2 = new Servo(pca9685, constants::channelLowerRight2);
+  servoLowerRight3 = new Servo(pca9685, constants::channelLowerRight3);
 }
 
 void loop() {
-  setChannelDuration(constants::chLeft1, servo_pulse_durationLeft);
-  setChannelDuration(constants::chRight1, servo_pulse_durationRight);
-  delay(constants::loop_delay);
-  
-  setChannelDuration(constants::chLeft2, servo_pulse_durationLeft);
-  setChannelDuration(constants::chRight2, servo_pulse_durationRight);
-  delay(constants::loop_delay);
-  
-  setChannelDuration(constants::chLeft3, servo_pulse_durationLeft);
-  setChannelDuration(constants::chRight3, servo_pulse_durationRight);
-  delay(constants::loop_delay);
-  
-  servo_pulse_durationLeft = switchPulseDuration(servo_pulse_durationLeft, false);
-  servo_pulse_durationRight = switchPulseDuration(servo_pulse_durationRight, true);
-  delay(constants::loop_delay);
+//  servoLowerLeft1->setPulseWidth(pulseWidth);
+//  servoLowerLeft2->setPulseWidth(pulseWidth);
+//  servoLowerLeft3->setPulseWidth(pulseWidth);
+//  servoLowerRight1->setPulseWidth(pulseWidth);
+//  servoLowerRight2->setPulseWidth(pulseWidth);
+//  servoLowerRight3->setPulseWidth(pulseWidth);
+//  delay(10);
+
+//  pulseWidth += changeValue;
+
+//  if (pulseWidth > 1590) {
+//    changeValue = -1;
+//  } else if (pulseWidth < 1410) {
+//    changeValue = 1;
+//  }
 }
 
-void setChannelDuration(PCA9685::Channel channel, PCA9685::DurationMicroseconds duration) {
-  pca9685.setChannelServoPulseDuration(channel, duration);
-}
-
-PCA9685::DurationMicroseconds switchPulseDuration(PCA9685::DurationMicroseconds previousDuration, boolean right) {
-  if (right) {
-    if (previousDuration == 1500) {
-      return 2100;
-    } else if(previousDuration == 2100) {
-      return 900;
-    } else {
-      return 1500;
-    }    
-  } else {
-    if (previousDuration == 1500) {
-      return 900;
-    } else if(previousDuration == 2100) {
-      return 1500;
-    } else {
-      return 2100;
-    }    
-  }
-}
+// PCA9685::DurationMicroseconds switchPulseDuration(Servo servo) {
+//   if (servo.right) {
+//     switch(currentStep) {
+//       case 1:
+//         return 1150;
+//       case 2:
+//         return 1500;
+//       case 3:
+//         return 1850;
+//       case 4:
+//         return 1500;
+//     }
+//   } else {
+//     switch(currentStep) {
+//       case 1:
+//         return 1850;
+//       case 2:
+//         return 1500;
+//       case 3:
+//         return 1150;
+//       case 4:
+//         return 1500;
+//     }
+//   }
+// }
