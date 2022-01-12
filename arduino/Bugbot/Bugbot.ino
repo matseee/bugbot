@@ -55,45 +55,19 @@ void setup() {
 }
 
 void loop() {
-//  servoLowerLeft1->setPulseWidth(pulseWidth);
-//  servoLowerLeft2->setPulseWidth(pulseWidth);
-//  servoLowerLeft3->setPulseWidth(pulseWidth);
-//  servoLowerRight1->setPulseWidth(pulseWidth);
-//  servoLowerRight2->setPulseWidth(pulseWidth);
-//  servoLowerRight3->setPulseWidth(pulseWidth);
-//  delay(10);
-
-//  pulseWidth += changeValue;
-
-//  if (pulseWidth > 1590) {
-//    changeValue = -1;
-//  } else if (pulseWidth < 1410) {
-//    changeValue = 1;
-//  }
-}
-
-// PCA9685::DurationMicroseconds switchPulseDuration(Servo servo) {
-//   if (servo.right) {
-//     switch(currentStep) {
-//       case 1:
-//         return 1150;
-//       case 2:
-//         return 1500;
-//       case 3:
-//         return 1850;
-//       case 4:
-//         return 1500;
-//     }
-//   } else {
-//     switch(currentStep) {
-//       case 1:
-//         return 1850;
-//       case 2:
-//         return 1500;
-//       case 3:
-//         return 1150;
-//       case 4:
-//         return 1500;
-//     }
-//   }
+// servoLowerLeft1->setPulseWidth(pulseWidth);
+// servoLowerLeft2->setPulseWidth(pulseWidth);
+// servoLowerLeft3->setPulseWidth(pulseWidth);
+// servoLowerRight1->setPulseWidth(pulseWidth);
+// servoLowerRight2->setPulseWidth(pulseWidth);
+// servoLowerRight3->setPulseWidth(pulseWidth);
+// delay(10);
+//
+// pulseWidth += changeValue;
+//
+// if (pulseWidth > 1840) {
+//   changeValue = -1;
+// } else if (pulseWidth < 1160) {
+//   changeValue = 1;
 // }
+}
