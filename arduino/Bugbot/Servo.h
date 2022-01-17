@@ -4,18 +4,18 @@
 #include <Arduino.h>
 #include <PCA9685.h>
 
-class Servo {
-  private:
+class Servo
+{
+protected:
     PCA9685 pca9685;
     PCA9685::Channel channel;
 
     PCA9685::DurationMicroseconds pulseWidth;
     int pulseWidthOffset;
-  
-  protected:
+
     PCA9685::DurationMicroseconds calculateRealPulseWidth(int pulseWidth);
 
-  public:
+public:
     Servo(PCA9685 pca9685, PCA9685::Channel channel);
     Servo(PCA9685 pca9685, PCA9685::Channel channel, int pulseWidthOffset);
 

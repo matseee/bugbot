@@ -1,0 +1,5 @@
+{
+    "board": "arduino:mbed_nano:nanorp2040connect",
+    "programmer": "arduino:cmsis-dap",
+    "sketch": "arduino\\Bugbot\\Bugbot.ino"
+}
