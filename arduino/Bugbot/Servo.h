@@ -4,22 +4,31 @@
 #include <Arduino.h>
 #include <PCA9685.h>
 
-class Servo
-{
+class Servo {
 protected:
-    PCA9685 pca9685;
-    PCA9685::Channel channel;
+  PCA9685 pca9685;
+  PCA9685::Channel channel;
 
-    PCA9685::DurationMicroseconds pulseWidth;
-    int pulseWidthOffset;
+  int angle;
+  bool mirrored;
 
-    PCA9685::DurationMicroseconds calculateRealPulseWidth(int pulseWidth);
+  PCA9685::DurationMicroseconds pulseWidth;
+  PCA9685::DurationMicroseconds pulseWidthOffset;
+
+  int mirrorAngle(int angle);
+
+  PCA9685::DurationMicroseconds convertAngleToPulseWidth(int angle);
+  PCA9685::DurationMicroseconds calculateRealPulseWidth(int pulseWidth);
 
 public:
-    Servo(PCA9685 pca9685, PCA9685::Channel channel);
-    Servo(PCA9685 pca9685, PCA9685::Channel channel, int pulseWidthOffset);
+  Servo(PCA9685 pca9685, PCA9685::Channel channel, bool mirrored);
+  Servo(PCA9685 pca9685, PCA9685::Channel channel, bool mirrored,
+        int pulseWidthOffset);
 
-    void setPulseWidth(int pulseWidth);
+  void setAngle(int angle);
+  int getAngle();
+
+  void setPulseWidth(int pulseWidth);
 };
 
 #endif

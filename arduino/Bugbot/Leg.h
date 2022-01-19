@@ -3,17 +3,21 @@
 
 #include "Servo.h"
 
-class Leg
-{
-private:
-    Servo *upper;
-    Servo *lower;
+class Leg {
+protected:
+  Servo *upper;
+  Servo *lower;
 
 public:
-    Leg(Servo *upper, Servo *lower);
+  Leg(Servo *upper, Servo *lower);
 
-    void moveForward();
-    void moveBackward();
+  void moveForward(bool half = false);
+  void pushForward();
+
+  void reset();
+
+  void up();
+  void down();
 };
 
 #endif

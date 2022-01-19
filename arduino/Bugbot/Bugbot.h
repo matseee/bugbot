@@ -3,24 +3,24 @@
 
 #include "Leg.h"
 
-class Bugbot
-{
+class Bugbot {
 protected:
-    Leg *left1;
-    Leg *left2;
-    Leg *left3;
+  Leg *left1;
+  Leg *left2;
+  Leg *left3;
 
-    Leg *right1;
-    Leg *right2;
-    Leg *right3;
+  Leg *right1;
+  Leg *right2;
+  Leg *right3;
 
 public:
-    Bugbot(Leg *left1, Leg *left2, Leg *left3, Leg *right1, Leg *right2, Leg *right 3);
+  Bugbot(Leg *left1, Leg *left2, Leg *left3, Leg *right1, Leg *right2,
+         Leg *right3);
 
-    void moveForward();
-    void moveBackward();
-    void turnLeft();
-    void turnRight();
-}
+  void moveForward();
+  void moveBackward();
+  void turnLeft();
+  void turnRight();
+};
 
 #endif
